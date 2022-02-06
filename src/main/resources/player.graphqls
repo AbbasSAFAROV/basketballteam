@@ -1,0 +1,26 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type PlayerDto {
+    id: ID!,
+    name: String!,
+    surname: String,
+}
+
+input PlayerCreateRequest {
+    name: String!,
+    surname: String,
+    position_id: String
+    team_id : String
+}
+
+type Query {
+     getAllPlayers: [PlayerDto]
+     getPlayerById(id:String) :  PlayerDto
+ }
+
+ type Mutation {
+    createPlayer(input: PlayerCreateRequest) : PlayerDto
+ }
